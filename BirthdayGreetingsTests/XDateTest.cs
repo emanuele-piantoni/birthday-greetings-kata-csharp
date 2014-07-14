@@ -4,17 +4,17 @@ using BirthdayGreetings;
 
 namespace BirthdayGreetingsTests
 {
-	[TestFixture ()]
+	[TestFixture]
 	public class Test
 	{
-		[Test ()]
+		[Test]
 		public void getters() {
 			XDate date = new XDate("1789/01/24");
 			Assert.AreEqual (24, date.getDay());
 			Assert.AreEqual (1, date.getMonth());
 		}
 
-		[Test ()]
+		[Test]
 		public void isSameDate() {
 			XDate date = new XDate("1789/01/24");
 			XDate sameDay = new XDate("2001/01/24");
@@ -26,7 +26,7 @@ namespace BirthdayGreetingsTests
 			Assert.IsFalse (date.isSameDay(notSameMonth), "not same month");
 		}
 
-		[Test ()]
+		[Test]
 		public void equalityTest() {
 			XDate date = new XDate("2000/01/02");
 			XDate same = new XDate("2000/01/02");

@@ -36,6 +36,10 @@
     <Compile Include="Employee.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="XDate.cs" />
+    <Compile Include="BirthdayService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="employee_data.txt" />
+  </ItemGroup>
 </Project>
