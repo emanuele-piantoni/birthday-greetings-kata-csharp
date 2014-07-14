@@ -6,7 +6,8 @@ namespace BirthdayGreetings
 	{
 		public static void Main (string[] args)
 		{
-			//service.sendGreetings("../../employee_data.txt", new XDate(), "localhost", 25);
+			var service = new BirthdayService ();
+			service.SendGreetings("../../employee_data.txt", new XDate(), "localhost", 25);
 		}
 	}
 }
