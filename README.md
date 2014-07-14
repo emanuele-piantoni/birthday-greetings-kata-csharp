@@ -10,5 +10,5 @@ Run all the tests.  One test will fail.  Change production code so that all test
 
 ## How to continue
 
-Read the [blog post](http://matteo.vaccari.name/blog/archives/154) and/or the included presentation.
+Read the [blog post](http://matteo.vaccari.name/blog/archives/154) and/or the  [presentation included in the Java version](https://github.com/xpmatteo/birthday-greetings-kata).
 
