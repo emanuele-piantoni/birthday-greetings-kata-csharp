@@ -2,7 +2,7 @@
 
 This is a simple refactoring exercise that is meant to teach something about dependency inversion and dependency injection.
 
-The documentation is in  [this blog bost](http://matteo.vaccari.name/blog/archives/154) and in the presentation in the doc directory.  There is a Java version [here](https://raw.githubusercontent.com/xpmatteo/birthday-greetings-kata)
+The documentation is in  [this blog bost](http://matteo.vaccari.name/blog/archives/154) and in the presentation in the doc directory.  There is a Java version [here](https://github.com/xpmatteo/birthday-greetings-kata)
 
 ## How to start
 
