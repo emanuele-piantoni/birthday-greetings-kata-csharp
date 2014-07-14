@@ -5,7 +5,7 @@ using BirthdayGreetings;
 namespace BirthdayGreetingsTests
 {
 	[TestFixture]
-	public class Test
+	public class XDateTest
 	{
 		[Test]
 		public void getters() {
@@ -39,6 +39,12 @@ namespace BirthdayGreetingsTests
 			Assert.IsFalse (date.Equals(different));
 		}
 
+		[Test]
+		public void todaysDate() {
+			XDate date = new XDate();
+			Assert.AreEqual (DateTime.Today.Day, date.getDay ());
+			Assert.AreEqual (DateTime.Today.Month, date.getMonth ());
+		}
 	}
 }
 
