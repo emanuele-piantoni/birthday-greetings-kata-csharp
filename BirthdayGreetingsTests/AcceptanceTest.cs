@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using System;
 using BirthdayGreetings;
 using netDumbster.smtp;
 
@@ -13,9 +12,14 @@ namespace BirthdayGreetingsTests
 		private SimpleSmtpServer smtpServer;
 
 		[SetUp]
-		public void setUp() 
+		public void setUp()
 		{
-			service = new BirthdayService ();
+		    var fileservice = new FileService(FILE_NAME);
+		    var repository = new EmployeeRepository(fileservice);
+            var emailSender = new EmailSender("localhost", smtpServer.Port);
+            var greetingFactory = new GreetingFactory();
+            var greetingSender = new GreetingSender(emailSender, greetingFactory);
+			service = new BirthdayService (repository, greetingSender);
 			smtpServer = SimpleSmtpServer.Start ();
 		}
 
@@ -28,7 +32,7 @@ namespace BirthdayGreetingsTests
 		[Test]
 		public void willSendGreetings_whenItsSomebodysBirthday() 
 		{
-			service.SendGreetings(FILE_NAME, new XDate("2008/10/08"), "localhost", smtpServer.Port);
+			service.SendGreetings(new XDate("2008/10/08"));
 
 			Assert.AreEqual(1, smtpServer.ReceivedEmailCount, "message not sent?");
 			var message = smtpServer.ReceivedEmail [0];
@@ -41,7 +45,7 @@ namespace BirthdayGreetingsTests
 		[Test]
 		public void willNotSendEmailsWhenNobodysBirthday() 
 		{
-			service.SendGreetings(FILE_NAME, new XDate("2008/01/01"), "localhost", smtpServer.Port);
+			service.SendGreetings(new XDate("2008/01/01"));
 			Assert.AreEqual(0, smtpServer.ReceivedEmailCount, "what? messages?");
 		}
 
