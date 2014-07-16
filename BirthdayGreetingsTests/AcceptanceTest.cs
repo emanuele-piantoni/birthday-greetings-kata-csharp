@@ -14,13 +14,14 @@ namespace BirthdayGreetingsTests
 		[SetUp]
 		public void setUp()
 		{
+            smtpServer = SimpleSmtpServer.Start();
+
 		    var fileservice = new FileService(FILE_NAME);
 		    var repository = new EmployeeRepository(fileservice);
             var emailSender = new EmailSender("localhost", smtpServer.Port);
             var greetingFactory = new GreetingFactory();
             var greetingSender = new GreetingSender(emailSender, greetingFactory);
 			service = new BirthdayService (repository, greetingSender);
-			smtpServer = SimpleSmtpServer.Start ();
 		}
 
 		[TearDown]
